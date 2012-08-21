@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ST=$(synclient -l | grep TouchpadOff | cut -c 31-)
+
+echo $ST
+if [ $ST -eq 0 ]; then
+    synclient TouchpadOff=1
+    notify-send Touchpad off
+else
+    synclient TouchpadOff=0
+    notify-send Touchpad on
+fi
+
+exit 0
