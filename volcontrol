@@ -7,32 +7,36 @@
 
 # Configuration
 STEP="5"    # Anything you like.
-UNIT="dB"   # dB, %, etc.
+UNIT="%"   # dB, %, etc.
 
 # Set volume
-SETVOL="/usr/bin/amixer -qc 0 set Master"
-
+SETVOL="/usr/bin/pamixer"
+GETVOL=$(/usr/bin/pamixer --get-volume | cut -c -3)
 case "$1" in
     "up")
-          $SETVOL $STEP$UNIT+
-          ;;
+	if [ "$GETVOL" -le "95" ]; then
+        $SETVOL "--increase" $STEP
+	fi
+        ;;
   "down")
-          $SETVOL $STEP$UNIT-
+	if [ $GETVOL -ge 0 ]; then
+        $SETVOL "--decrease" $STEP
+	fi
+        ;;
+  "toggle")
+          $SETVOL "--toggle-mute"
           ;;
-  "mute")
-          $SETVOL toggle
-5          ;;
 esac
 
 # Get current volume and state
-VOLUME=$(amixer get Master | grep 'Mono:' | cut -d ' ' -f 6 | sed -e 's/[^0-9]//g')
-STATE=$(amixer get Master | grep 'Mono:' | grep -o "\[off\]")
+#VOLUME=$(pamixer get Master | grep 'Mono:' | cut -d ' ' -f 6 | sed -e 's/[^0-9]//g')
+STATE=$(pamixer --get-mute)
 
 # Show volume with volnoti
-if [[ -n $STATE ]]; then
+if [[ $STATE = "true" ]]; then
   volnoti-show -m
 else
-  volnoti-show $VOLUME
+  volnoti-show $GETVOL
 fi
 
 exit 0

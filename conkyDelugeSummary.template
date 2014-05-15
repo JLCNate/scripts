@@ -1,0 +1,2 @@
+Torrents:${color1} [notorrents]
+${color3}DL:${color1} [totaldownloadrate] ${color3}UL:${color1} [totaluploadrate]
