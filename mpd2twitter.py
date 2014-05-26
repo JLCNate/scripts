@@ -37,7 +37,7 @@ nowplaying = "#NowPlaying: %s - %s " % (artist,title)
 sharing = nowplaying + raw_input("Message: %s \nAppend message to post?\n" % nowplaying)
 
 # Send api call to both facebook and Twitter
-api.update_status(nowplaying)
-graph.put_object("me", "feed", message=nowplaying)
+api.update_status(sharing)
+graph.put_object("me", "feed", message=sharing)
 #Print the posted message for feedback
 print("Posted " + sharing)
