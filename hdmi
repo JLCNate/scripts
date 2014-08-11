@@ -12,8 +12,8 @@ CHK_VGA_G=$(xrandr |grep $VGA | grep "+")
 CHK_HDMI_G=$(xrandr |grep $HDMI | grep "+")
 
 function hdmi_only(){
-xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --rotate normal --output HDMI1 --auto --pos 1366x0 --rotate normal
-
+#xrandr --output LVDS1 --mode 1366x768 --pos 0x312 --rotate normal --output HDMI1  --right-of LVDS1 --rotate normal
+xrandr --output LVDS1 --off --output HDMI1 --rotate normal
 }
 
 if [ "$CHK_HDMI" == "connected" ]; then
@@ -26,8 +26,7 @@ else
 
 fi
 
-/usr/bin/bash /home/leo/.fehbg
-/usr/bin/bash /home/leo/.conky/quickConky
-
+#nitrogen --restore
+/bin/sh ~/.fehbg
 
 exit 0
