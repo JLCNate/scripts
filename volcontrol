@@ -21,8 +21,6 @@ UNIT="%"   # dB, %, etc.
 SETVOL="/usr/bin/pamixer -s $1"
 # Get the volume status for the notification
 GETVOL=$(/usr/bin/pamixer -s $1 --get-volume | cut -c -3)
-# Get current mute state
-STATE=$(pamixer -s $1 --get-mute)
 
 # Determines what action will be taken
 case "$2" in
@@ -41,7 +39,8 @@ case "$2" in
           ;;
 esac
 
-
+# Get current mute state
+STATE=$(pamixer -s $1 --get-mute)
 
 # Show volume with volnoti
 if [[ $STATE = "true" ]]; then
