@@ -2,11 +2,13 @@
 title: Scripts 
 email: leomeloxp@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  
+  These are linux scripts I wrote and use on my Linux setup daily.
+  Their purpose is to mostly make certain tasks easier 
+  or just increase visual feedback on my rather streamlined, minimalist setup.
 baseurl: "/scripts" # the subpath of your site, e.g. /blog/
 url: "http://leomeloxp.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: leomeloxp
+github_username:  leomeloxp
 
 # Build settings
 markdown: kramdown
