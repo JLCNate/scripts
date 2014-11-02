@@ -11,16 +11,12 @@ CHK_HDMI=$(xrandr |grep $HDMI | awk ' { print $2 } ')
 CHK_VGA_G=$(xrandr |grep $VGA | grep "+")
 CHK_HDMI_G=$(xrandr |grep $HDMI | grep "+")
 
-function hdmi_only(){
-#xrandr --output LVDS1 --mode 1366x768 --pos 0x312 --rotate normal --output HDMI1  --right-of LVDS1 --rotate normal
-xrandr --output LVDS1 --off --output HDMI1 --rotate normal
+function double_screen(){
+	source ~/.screenlayout/double1920p.sh
 }
 
-if [ "$CHK_HDMI" == "connected" ]; then
-    hdmi_only
-
-elif [ "$CHK_HDMI_G" ]; then
-    hdmi_only
+if [[ "$CHK_HDMI" == "connected" && "$CHK_VGA" == "connected" ]]; then 
+	double_screen
 else
     xrandr --output $LVDS --auto
 
