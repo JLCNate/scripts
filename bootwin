@@ -1,5 +1,5 @@
 #!/bin/bash
 
 #to boot to windows
-grub-reboot 0
+grub-reboot 1 
 reboot
