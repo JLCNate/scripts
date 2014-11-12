@@ -1,14 +1,32 @@
-# Site settings
-title: Scripts 
+### Global Build Settings
+safe: true
+lsi: false
+
+markdown: kramdown
+url: "http://leomeloxp.github.io"
+
+
+## Global Settings
 email: leomeloxp@gmail.com
+twitter_username: leomeloxp
+github_username:  leomeloxp
+
+
+## Individual Website Settings
+title: Leo's Github Projects
+description: > # this means to ignore newlines until "baseurl:"
+  This is a base website where I might share some of my projects as subpages.
+  The main purpose of this website is to actually improve my Rails skills and teach myself some jekyll.
+baseurl: "/scripts" # the subpath of your site
+
+name: Scripts
+project: scripts
+main_site_url: http://leomeloxp.github.io
+projects_site_url: http://leomeloxp.github.io/projects
+# Project github URL
+github_repo_url: https://github.com/leomeloxp/scripts
+
 description: > # this means to ignore newlines until "baseurl:"
   These are linux scripts I wrote and use on my Linux setup daily.
   Their purpose is to mostly make certain tasks easier 
   or just increase visual feedback on my rather streamlined, minimalist setup.
-baseurl: "/scripts" # the subpath of your site, e.g. /blog/
-url: "http://leomeloxp.github.io" # the base hostname & protocol for your site
-twitter_username: leomeloxp
-github_username:  leomeloxp
-
-# Build settings
-markdown: kramdown

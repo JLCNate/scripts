@@ -2,3 +2,12 @@ credentials*
 tweepy/
 .sass-cache
 _site/
+
+#*
+.#*
+*~
+_site
+.idea
+*.sw[op]
+.project
+sample-pages
