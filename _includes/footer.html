@@ -44,15 +44,11 @@
 
       <div class="footer-col  footer-col-3">
         <div class="trigger" style="text-align: right">
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          {% endif %}
-        {% endfor %}
-      </div>
+          <a class="page-link" href="{{ page.url | prepend: site.url }}">Home</a> | 
+          <a class="page-link" href="{{ '/projects' | prepend: site.url }}">Projects</a> | 
+          <a class="page-link" href="{{ '/about' | prepend: site.url }}">About</a>
+        </div>
       </div>
     </div>
-
   </div>
-
 </footer>
