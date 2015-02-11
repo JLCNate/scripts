@@ -12,7 +12,7 @@ title =  client.currentsong()["title"]
 import sys
 import subprocess
 
-import tweepy, time, facebook
+#import tweepy, time, facebook
 from credentials import *
 
 """ Credentials should be included into a separate file in the following format

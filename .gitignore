@@ -1,2 +1,5 @@
 credentials*
 tweepy/
+.sass-cache/
+_site/
+mpd.p*
