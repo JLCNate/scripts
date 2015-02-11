@@ -4,7 +4,7 @@
 # pamixer (which on Arch Linux is available from the AUR)
 # volnoti (also available from the AUR)
 #
-# All is does it read info from pamixer and process it to 
+# All is does it read info from pamixer and process it to
 # change sound volume or mute status and display a pretty notification.
 #
 # It takes two arguments, the first one determines which sink (device)
@@ -13,7 +13,7 @@
 
 
 # Configuration
-STEP="5"    # Any number you like.
+STEP="5"   # Any number you like.
 UNIT="%"   # dB, %, etc.
 
 
@@ -25,18 +25,18 @@ GETVOL=$(/usr/bin/pamixer -s $1 --get-volume | cut -c -3)
 # Determines what action will be taken
 case "$2" in
     "up")
-	if [ "$GETVOL" -le "95" ]; then
-        $SETVOL "--increase" $STEP
-	fi
+        if [ "$GETVOL" -le "95" ]; then
+            $SETVOL "--increase" $STEP
+        fi
         ;;
-  "down")
-	if [ $GETVOL -ge 0 ]; then
-        $SETVOL "--decrease" $STEP
-	fi
+    "down")
+        if [ $GETVOL -ge 0 ]; then
+            $SETVOL "--decrease" $STEP
+        fi
         ;;
-  "toggle")
-          $SETVOL "--toggle-mute"
-          ;;
+    "toggle")
+        $SETVOL "--toggle-mute"
+        ;;
 esac
 
 # Get current mute state
@@ -44,9 +44,9 @@ STATE=$(pamixer -s $1 --get-mute)
 
 # Show volume with volnoti
 if [[ $STATE = "true" ]]; then
-  volnoti-show -m
+    volnoti-show -m
 else
-  volnoti-show $GETVOL
+    volnoti-show $GETVOL
 fi
 
 exit 0
