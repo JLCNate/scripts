@@ -2,8 +2,8 @@
 # Script for dual monitors on openbox
 
 LVDS="LVDS1"
-VGA="VGA1"
-HDMI="HDMI1"
+VGA="DVI-0"
+HDMI="HDMI-0"
 
 CHK_VGA=$(xrandr |grep $VGA | awk ' { print $2 } ')
 CHK_HDMI=$(xrandr |grep $HDMI | awk ' { print $2 } ')
